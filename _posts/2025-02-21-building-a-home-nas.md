@@ -14,33 +14,25 @@ At my place of employment, I was lucky to acquire an old and monstrous computer 
 
 The computer itself had no value - it was some ancient server from 20 years ago. However, it immediately drew my eyes because of the case. I've been into refurbishing computers for basically my entire life, so I have a good sense of what parts can be valuable. There was something quite peculiar about this case - It had a 4-drive HDD bay built into it.
 
-![](/assets/img/1-building-a-home-nas/1_case_front.jpg)
-*Front panel of case removed, revealing the bay*
-![](/assets/img/1-building-a-home-nas/0_case_front.jpg)
-*The PC Case (the HDD bay is already removed here)*
+![](/assets/img/1-building-a-home-nas/split_case_front.jpg)
+*Left: The PC Case (the HDD bay is already removed here). Right: Front panel of case removed, revealing the bay*
 
 I did not yet know what it was or if I could use it, but I knew that I had to have it. After getting it home and taking the case apart, I realized that I could slide out the entire HDD bay:
 
-![](/assets/img/1-building-a-home-nas/3_slide_out.jpg)
-*Sliding out the bay*
-![](/assets/img/1-building-a-home-nas/4_removed.jpg)
-*Bay removed from case*
+![](/assets/img/1-building-a-home-nas/split_extract.jpg)
+*Left: Sliding out the bay. Right: Bay removed from case.*
 
-Now we're getting somewhere. However, I still didn't know what I was dealing with. So I started taking photos of the PCB and microchips, hoping that I could get some info on the company and what type of bay I had on my hands.
+Might this somehow be useful? I still didn't know what I was dealing with. So I started taking photos of the PCB and microchips, hoping that I could get some info on the company and what type of bay I had on my hands.
 
-![](/assets/img/1-building-a-home-nas/7_inside.jpg)
-*Inside of the bay*
-![](/assets/img/1-building-a-home-nas/chip_closeup.jpg)
-*Megawin chip closeup*
+![](/assets/img/1-building-a-home-nas/split_inside_chip.jpg)
+*Left: Inside of the bay. Right: *Megawin chip closeup
 
-I eventually learned, through a bit of research that Chenbro is a respected manufacturer of server equipment, and Megawin makes normal SATA controllers. This is good news - it's essentially just verifying that all I need is a way to connect it to my computer, and it should work perfectly. And hopefully I should be able to set up some RAID, as well.
+I eventually learned, through a bit of research, that Chenbro is a respected manufacturer of server equipment, and Megawin makes normal SATA controllers. This is good news - it's verification that all I need is a way to connect it to my computer, and it should work perfectly. Furthermore, I should be able to set up some RAID, as well.
 
-But how does it plug in? That's the key piece of information that took me a bit. The back has an odd connector, and it came with a funny cable:
+But how does it plug in? That's the key piece of information that took me a bit to find. The back has an odd connector, and it came with a funny cable:
 
-![](/assets/img/1-building-a-home-nas/8_back.jpg)
-*Back of the bay*
-![](/assets/img/1-building-a-home-nas/SAS-Cable-4-Blue.jpg)
-*Hi-Res stock photo of the cable*
+![](/assets/img/1-building-a-home-nas/split_back_cable.jpg)
+*Left: Back of the bay. Right: *Hi-Res stock photo of the cable*
 
 After a bunch of googling, I realized that what I was looking at is called "SAS", or Serial-Attached SCSI. Without boring you with details, just know these are the industry standard for connecting a hard drive bay to a server, generally through some kind of PCI-e card. There's several types of SAS - the one on this bay is called SFF-8087. Luckily however, I have the cable that came with the bay, since it was inside the computer, and it has four SATA connectors on the other end. Simple enough - So all I need is four SATA ports, and the bay is usable! Granted, the cable will need to run from the HDD bay to inside the computer, but I can work with that. (There might be a way to avoid this with adapters, but I don't know for sure, and I didn't want to get sidetracked.)
 
@@ -50,31 +42,23 @@ This is good news for the budget-conscious person. This means that you actually 
 
 Next I need a computer. I have a couple extra old SFF PCs in my house, so my ultimate goal through all of this was to set up one of those fancy "Home Lab" servers that I'd heard so much stuff about. People also sometimes use mini PCs or Raspberry Pis for this. In my case, a skinny office tower with an i7-4770 and 16GB of ram that's been sitting in my closet shall finally be put to good use. I figured that if I am going to have an external NAS array, then I should do it properly and have a dedicated NAS PC. Then I could store all my data on a RAID array like a real professional. 
 
-I ended up going with TrueNAS, and I do not regret that decision. The details of that will be for another article. The important information is that I installed TrueNAS on the PC, I installed the SATA expansion card, and it detected and worked automatically with no issues. TrueNAS seemed to come with the right drivers for the ASMedia chipset. I then plugged the NAS Bay into the card Alright, we're off to the races now.[^1] (Please ignore the bending of the bracket in the following photo. It's terrible, but I mistakenly purchased a card that didn't come with a low-profile bracket... don't make that mistake.)
+### Construction time
 
-![](/assets/img/1-building-a-home-nas/12_sata_card.jpg)
-*This is only somewhat janky*
+I ended up going with TrueNAS, and I do not regret that decision. The details of that will be for another article. The important information is that I installed TrueNAS on the PC, I installed the SATA expansion card, and it detected and worked automatically with no issues. TrueNAS seemed to come with the right drivers for the ASMedia chipset. I then plugged the NAS Bay into the card Alright, we're off to the races now.[^1] Time to start building things.
 
 [^1]: (It must be noted - when I tested this card in my windows 10 PC, it did not work perfectly. It could only connect 2 HDDs at a time. I attempted to download drivers but that didn't seem to solve the issue. However, when used in my other computer running TrueNAS, it immediately worked perfectly without any additional drivers. So take that as you will. I didn't test the card extensively in other computers, and perhaps Linux support is just better. The Amazon comments seem to suggest a few others had a similar problem.)
 
-### Construction time
+![](/assets/img/1-building-a-home-nas/split_wood_card.jpg)
+*Left: Wood added successfully. Right: The card installed in the PC. Please excuse needing to bend the bracket. I made a terrible mistake and didn't buy one with a low profile bracket. Don't be me.*
 
-Time to throw some wood on this bad boy:
+Since I'm converting this into an external bay, that means it needs some way to power itself. I've got just the thing - a PSU that I ripped out of a busted AiO PC. This has been sitting in my closet a while. I knew it would come in handy some day!
 
-![](/assets/img/1-building-a-home-nas/9_add_wood.jpg)
-*Wood added successfully*
+![](/assets/img/1-building-a-home-nas/split_power.jpg)
+*Left: This PSU has finally found its purpose. Right: I swear this is perfectly safe*
 
-Of course it's gonna need a power supply. I've got just the thing - a PSU that I ripped out of a busted AiO PC. This has been sitting in my closet a while. I knew it would come in handy some day!
+About the above right-side photo: Since I'm using a dedicated PSU for the bay, I need a way to turn it on. Computer PSUs can be turned on manually by shorting 2 wires (green and black, 4th and 5th from bottom right with clip facing you). This can be achieved easily with a paperclip. Usually this is only done for testing power power supplies, but I don't need to turn this on and off. Once it's on, it's meant to stay on 24/7. I will eventually be purchasing some wires and buttons to do this better. But for now, this paperclip is jammed in nice and tight. (There's no current running through it, by the way, it's just a control signal. So it's not dangerous even though it looks janky.)
 
-![](/assets/img/1-building-a-home-nas/10_power.jpg)
-*This PSU has finally found its purpose*
-
-Since I'm using a dedicated PSU for the bay, I need a way to turn it on. Computer PSUs can be turned on manually by shorting 2 wires (green and black, 4th and 5th from bottom right with clip facing you). This can be achieved easily with a paperclip. Usually this is only done for testing power power supplies, but I don't need to turn this on and off. Once it's on, it's meant to stay on 24/7. I will eventually be purchasing some wires and buttons to do this better. But for now, this paperclip is jammed in nice and tight. (There's no current running through it, by the way, it's just a control signal. So it's not dangerous even though it looks janky.)
-
-![](/assets/img/1-building-a-home-nas/11_power_clip.jpg)
-*I swear this is perfectly safe*
-
-I also knew that I needed some cooling. When it was inside the old server case, the NAS bay had its own fan. With the wood panels on the side, the box is gonna be trapping all the heat inside. But it is designed for air to pass over the drives, and there's vents on the front panel. So I needed to improvise a bit. Turns out, it's nothing that a couple well-placed zip-ties cannot solve (Note the SAS cable has to go up under the fan to plug in.) I tested it with the fan turned off later on and it made an enormous difference - Hard drive temps of 30C with the fan, and 60C without it. That small bit of air passing over the drives makes a huge difference. Especially with the wooden panels, the bay traps all the heat inside, so the fan is extra important here.
+Finally, I also knew that I needed some cooling. When it was inside the old server case, the NAS bay had its own fan. With the wood panels on the side, the box is gonna be trapping all the heat inside. But it is designed for air to pass over the drives, and there's vents on the front panel. So I needed to improvise a bit. Turns out, it's nothing that a couple well-placed zip-ties cannot solve (Note the SAS cable has to go up under the fan to plug in.) I tested it with the fan turned off later on and it made an enormous difference - Hard drive temps of 30C with the fan, and 60C without it. That small bit of air passing over the drives makes a huge difference. Especially with the wooden panels, the bay traps all the heat inside, so the fan is extra important here.
 
 ![](/assets/img/1-building-a-home-nas/13_fan.jpg)
 *Zip-tying the fan onto the back*
