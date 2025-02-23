@@ -14,7 +14,10 @@ At my place of employment, I was lucky to acquire an old and monstrous computer 
 
 The computer itself had no value - it was some ancient server from 20 years ago. However, it immediately drew my eyes because of the case. I've been into refurbishing computers for basically my entire life, so I have a good sense of what parts can be valuable. There was something quite peculiar about this case - It had a 4-drive HDD bay built into it.
 
-![](/assets/img/1-building-a-home-nas/split_case_front.jpg)
+<div class="image-row">
+    <img src="https://i.imgur.com/5Mw6tBm.jpeg" alt="The PC Case">
+    <img src="https://i.imgur.com/kFDzOQj.jpeg" alt="Front panel of case removed, revealing the bay">
+</div>
 *Left: The PC Case (the HDD bay is already removed here). Right: Front panel of case removed, revealing the bay*
 
 I did not yet know what it was or if I could use it, but I knew that I had to have it. After getting it home and taking the case apart, I realized that I could slide out the entire HDD bay:
