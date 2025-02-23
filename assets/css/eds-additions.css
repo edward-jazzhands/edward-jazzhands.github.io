@@ -1,8 +1,11 @@
 .image-row {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .image-row img {
-    width: 48%;
+    width: 49%;
+    height: auto;
+    object-fit: contain;
 }
