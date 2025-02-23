@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Building a home NAS array with salvaged parts
-cover-img: {{ site.cloudinary.url }}v1/1_building_a_nas_array/cover
-thumbnail-img: {{ site.cloudinary.url }}v1/1_building_a_nas_array/thumb
-share-img: {{ site.cloudinary.url }}v1/1_building_a_nas_array/cover
+cover-img: /assets/img/1-building-a-home-nas/cover.jpg
+thumbnail-img: /assets/img/1-building-a-home-nas/thumb.jpg
+share-img: /assets/img/1-building-a-home-nas/cover.jpg
 tags:
   - TrueNAS
   - DIY
