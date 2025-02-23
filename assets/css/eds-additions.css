@@ -5,9 +5,6 @@
     justify-content: space-between;
     width: 100%;
     height: auto;
-    border: #2980b9;
-    border-width: 0.3125rem;
-    border-style: solid;
   }
   
   .image-row a {
@@ -20,7 +17,4 @@
     width: 100%; 
     height: auto;
     object-fit: contain;
-    border: #3CB371;
-    border-width: 0.3125rem;
-    border-style: solid;
   }

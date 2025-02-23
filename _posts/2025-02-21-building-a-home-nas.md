@@ -77,17 +77,15 @@ Since I'm converting this into an external bay, that means it needs some way to 
 
 About the above right-side photo: Since I'm using a dedicated PSU for the bay, I need a way to turn it on. Computer PSUs can be turned on manually by shorting 2 wires (green and black, 4th and 5th from bottom right with clip facing you). This can be achieved easily with a paperclip. Usually this is only done for testing power power supplies, but I don't need to turn this on and off. Once it's on, it's meant to stay on 24/7. I will eventually be purchasing some wires and buttons to do this better. But for now, this paperclip is jammed in nice and tight. (There's no current running through it, by the way, it's just a control signal. So it's not dangerous even though it looks janky.)
 
-Finally, I also knew that I needed some cooling. When it was inside the old server case, the NAS bay had its own fan. With the wood panels on the side, the box is gonna be trapping all the heat inside. But it is designed for air to pass over the drives, and there's vents on the front panel. There's also a fan header on the back of the bay. So I needed to improvise a bit. Turns out, it's nothing that a couple well-placed zip-ties cannot solve (Note the SAS cable has to go up under the fan to plug in.) I tested it with the fan turned off later on and it made an enormous difference - Hard drive temps of 30C with the fan, and 60C without it. That small bit of air passing over the drives makes a huge difference. Especially with the wooden panels, the bay traps all the heat inside, so the fan is extra important here.
+I also knew that I needed some cooling. When it was inside the old server case, the NAS bay had its own fan. With the wood panels on the side, the box is gonna be trapping all the heat inside. But it is designed for air to pass over the drives, and there's vents on the front panel. There's also a fan header on the back of the bay. So I needed to improvise a bit. Turns out, it's nothing that a couple well-placed zip-ties cannot solve (Note the SAS cable has to go up under the fan to plug in.) I tested it with the fan turned off later on and it made an enormous difference - Hard drive temps of 30C with the fan, and 60C without it. That small bit of air passing over the drives makes a huge difference. Especially with the wooden panels, the bay traps all the heat inside, so the fan is extra important here.
 
-<a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/12_fan"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/12_fan" alt="Zip-tying the fan onto the back. The fan is plugged into a header on the bay."></a>
-*Zip-tying the fan onto the back. The fan is plugged into a header on the bay.*
+<div class="image-row">
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/12_fan"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/12_fan" alt="Zip-tying the fan onto the back. The fan is plugged into a header on the bay."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/cover"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/cover" alt="The lights are what sell it."></a>
+</div>
+*Left: Zip-tying the fan onto the back. The fan is plugged into a header on the bay. Right: The lights are what sell it*
 
-### Up and Running
-
-Time to get some hard drives hooked up. I happened to have a bunch of HDDs in my spare parts (among many other things... all from refurbishing old computers). I think it doesn't look terrible once its running with the LEDs lit up. I'll do something about that power cable eventually but it's fine for now:
-
-<a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/cover"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/cover" alt="The lights are what sell it."></a>
-*The lights are what sell it*
+The final stage is to get some hard drives hooked up. I happened to have a bunch of HDDs in my spare parts (among many other things... all from refurbishing old computers). I think it doesn't look terrible once its running with the LEDs lit up. I'll do something about that power cable eventually but it's fine for now.
 
 It should be noted, HDDs can be had on used stuff marketplaces for very cheap, often 10 or 15 bucks each, and I have acquired several that way as well. They work fine. Another way to get drives is bulk / lot sales on Ebay. However you choose to acquire them, just know that hard drives, like most machines, will usually keep running if they've been running for the last 10 years or so. The odds are not very high that it's suddenly gonna crap out on you after you buy it. However, there is always a chance that it will die. That's part of the price you pay for getting used / salvaged stuff for little or no money. But of course this works both ways. If you're getting it for very cheap, then it's not a big deal if it dies on you. That's what the RAID array solves! If one of them dies, you have data redundancy. Just pop the dead drive out of the bay, stick in a new drive of equal size, and TrueNAS will automatically handle the rest.
 
@@ -96,7 +94,7 @@ At long last, I get to boot up and try out TrueNAS. Here in my setup you can see
 <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/13_truenas"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/13_truenas" alt="TrueNAS up and running! (Photo taken after I've been using it a while)"></a>
 *TrueNAS up and running! (Photo taken after I've been using it a while)*
 
-And that's it! If you're wondering about the whole Steam games being on the NAS array - that will be the topic of another article. (I will link that here when I finish it). For now, I hope you enjoyed reading this and maybe learned something from it.
+At last, my server is working. If you're wondering about the whole Steam games being on the NAS array - that will be the topic of another article. (I will link that here when I finish it). For now, I hope you enjoyed reading this and maybe learned something from it.
 
 
 
