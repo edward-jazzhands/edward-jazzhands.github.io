@@ -1,11 +1,26 @@
+/* EDS ADDITIONS */
+
 .image-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
-}
-
-.image-row img {
-    width: auto;
+    height: auto;
+    border: #2980b9;
+    border-width: 0.3125rem;
+    border-style: solid;
+  }
+  
+  .image-row a {
+    display: block;
+    flex: 1;      
+    margin: 0 5px;
+  }
+  
+  .image-row img {
+    width: 100%; 
     height: auto;
     object-fit: contain;
-}
+    border: #3CB371;
+    border-width: 0.3125rem;
+    border-style: solid;
+  }
