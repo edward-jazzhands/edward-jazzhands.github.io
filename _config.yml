@@ -279,6 +279,8 @@ defaults:
       layout: "post"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
+      after-content:
+        - "/_includes/eds_includes/after-content.html"
   -
     scope:
       path: "" # any file that's not a post will be a "page" layout by default
