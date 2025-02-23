@@ -36,6 +36,14 @@ round-avatar: true
 #title-img: /path/to/image
 
 
+#####################
+# - Cloud Storage - #
+#####################
+
+cloudinary:
+  url: "https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/"
+
+
 #####################################
 # --- Footer social media links --- #
 #####################################

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Building a home NAS array with salvaged parts
-cover-img: /assets/img/1-building-a-home-nas/cover.jpg
-thumbnail-img: /assets/img/1-building-a-home-nas/thumb.jpg
-share-img: /assets/img/1-building-a-home-nas/cover.jpg
+cover-img: {{ site.cloudinary.url }}v1/1_building_a_nas_array/cover
+thumbnail-img: {{ site.cloudinary.url }}v1/1_building_a_nas_array/thumb
+share-img: {{ site.cloudinary.url }}v1/1_building_a_nas_array/cover
 tags:
   - TrueNAS
   - DIY
@@ -16,25 +16,24 @@ At my place of employment, I was lucky to acquire an old and monstrous computer 
 The computer itself had no value - it was some ancient server from 20 years ago. However, it immediately drew my eyes because of the case. I've been into refurbishing computers for basically my entire life, so I have a good sense of what parts can be valuable. There was something quite peculiar about this case - It had a 4-drive HDD bay built into it.
 
 <div class="image-row">
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/0_case_front"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/0_case_front" alt="The PC Case"></a>
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/1_case_front"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/1_case_front" alt="Front panel of case removed, revealing the bay"></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/0_case_front"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/0_case_front" alt="The PC Case"></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/1_case_front"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/1_case_front" alt="Front panel of case removed, revealing the bay"></a>
 </div>
-
 *Left: The PC Case (the HDD bay is already removed here). Right: Front panel of case removed, revealing the bay*
 
 I did not yet know what it was or if I could use it, but I knew that I had to have it. After getting it home and taking the case apart, I realized that I could slide out the entire HDD bay:
 
 <div class="image-row">
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/2_slide_out"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/2_slide_out" alt="Sliding out the bay"></a>
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/3_removed"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/3_removed" alt="Bay removed from case."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/2_slide_out"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/2_slide_out" alt="Sliding out the bay"></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/3_removed"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/3_removed" alt="Bay removed from case."></a>
 </div>
 *Left: Sliding out the bay. Right: Bay removed from case.*
 
 Might this somehow be useful? I still didn't know what I was dealing with. So I started taking photos of the PCB and microchips, hoping that I could get some info on the company and what type of bay I had on my hands.
 
 <div class="image-row">
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/4_inside"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/4_inside" alt="Inside of the bay."></a>
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/5_chip_closeup"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/5_chip_closeup" alt="Megawin chip closeup."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/4_inside"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/4_inside" alt="Inside of the bay."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/5_chip_closeup"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/5_chip_closeup" alt="Megawin chip closeup."></a>
 </div>
 *Left: Inside of the bay. Right: Megawin chip closeup*
 
@@ -43,8 +42,8 @@ I eventually learned, through a bit of research, that Chenbro is a respected man
 The back has an odd connector, and it came with a cable I had never seen before.
 
 <div class="image-row">
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/6_back"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/6_back" alt="Back of the bay."></a>
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/7_sas_cable"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/7_sas_cable" alt="Stock photo of the cable"></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/6_back"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/6_back" alt="Back of the bay."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/7_sas_cable"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/7_sas_cable" alt="Stock photo of the cable"></a>
 </div>
 *Left: Back of the bay. Right: Stock photo of the cable (easier to see the detail)*
 
@@ -63,16 +62,16 @@ I ended up going with TrueNAS, and I do not regret that decision. The details of
 [^1]: (It must be noted - when I tested this card in my windows 10 PC, it did not work perfectly. It could only connect 2 HDDs at a time. I attempted to download drivers but that didn't seem to solve the issue. However, when used in my other computer running TrueNAS, it immediately worked perfectly without any additional drivers. So take that as you will. I didn't test the card extensively in other computers, and perhaps Linux support is just better. The Amazon comments seem to suggest a few others had a similar problem.)
 
 <div class="image-row">
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/8_add_wood"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/8_add_wood" alt="Wood added successfully."></a>
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/9_sata_card"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/9_sata_card" alt="The card installed in the PC."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/8_add_wood"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/8_add_wood" alt="Wood added successfully."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/9_sata_card"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/9_sata_card" alt="The card installed in the PC."></a>
 </div>
 *Left: Wood added successfully. Right: The card installed in the PC.
 
 Since I'm converting this into an external bay, that means it needs some way to power itself. I've got just the thing - a PSU that I ripped out of a busted AiO PC. This has been sitting in my closet a while. I knew it would come in handy some day!
 
 <div class="image-row">
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/10_power"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/10_power" alt="This PSU has finally found its purpose."></a>
-    <a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/11_power_cli"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/11_power_cli" alt="I swear this is perfectly safe."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/10_power"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/10_power" alt="This PSU has finally found its purpose."></a>
+    <a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/11_power_cli"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/11_power_cli" alt="I swear this is perfectly safe."></a>
 </div>
 *Left: This PSU has finally found its purpose. Right: I swear this is perfectly safe*
 
@@ -80,21 +79,21 @@ About the above right-side photo: Since I'm using a dedicated PSU for the bay, I
 
 Finally, I also knew that I needed some cooling. When it was inside the old server case, the NAS bay had its own fan. With the wood panels on the side, the box is gonna be trapping all the heat inside. But it is designed for air to pass over the drives, and there's vents on the front panel. There's also a fan header on the back of the bay. So I needed to improvise a bit. Turns out, it's nothing that a couple well-placed zip-ties cannot solve (Note the SAS cable has to go up under the fan to plug in.) I tested it with the fan turned off later on and it made an enormous difference - Hard drive temps of 30C with the fan, and 60C without it. That small bit of air passing over the drives makes a huge difference. Especially with the wooden panels, the bay traps all the heat inside, so the fan is extra important here.
 
-<a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/12_fan"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/12_fan" alt="Zip-tying the fan onto the back. The fan is plugged into a header on the bay."></a>
+<a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/12_fan"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/12_fan" alt="Zip-tying the fan onto the back. The fan is plugged into a header on the bay."></a>
 *Zip-tying the fan onto the back. The fan is plugged into a header on the bay.*
 
 ### Up and Running
 
 Time to get some hard drives hooked up. I happened to have a bunch of HDDs in my spare parts (among many other things... all from refurbishing old computers). I think it doesn't look terrible once its running with the LEDs lit up. I'll do something about that power cable eventually but it's fine for now:
 
-<a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/cover"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/cover" alt="The lights are what sell it."></a>
+<a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/cover"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/cover" alt="The lights are what sell it."></a>
 *The lights are what sell it*
 
 It should be noted, HDDs can be had on used stuff marketplaces for very cheap, often 10 or 15 bucks each, and I have acquired several that way as well. They work fine. Another way to get drives is bulk / lot sales on Ebay. However you choose to acquire them, just know that hard drives, like most machines, will usually keep running if they've been running for the last 10 years or so. The odds are not very high that it's suddenly gonna crap out on you after you buy it. However, there is always a chance that it will die. That's part of the price you pay for getting used / salvaged stuff for little or no money. But of course this works both ways. If you're getting it for very cheap, then it's not a big deal if it dies on you. That's what the RAID array solves! If one of them dies, you have data redundancy. Just pop the dead drive out of the bay, stick in a new drive of equal size, and TrueNAS will automatically handle the rest.
 
 At long last, I get to boot up and try out TrueNAS. Here in my setup you can see I've got two 1TB drives in a RAID 1 setup (mirroring) as 'pool1' (the data pool), and the other two drives, 'games1', and 'games2', just store my Steam games so they're not using RAID.
 
-<a href="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/13_truenas"><img src="https://res.cloudinary.com/duftwfvqo/image/upload/f_auto,q_auto/13_truenas" alt="TrueNAS up and running! (Photo taken after I've been using it a while)"></a>
+<a href="{{ site.cloudinary.url }}v1/1_building_a_nas_array/13_truenas"><img src="{{ site.cloudinary.url }}v1/1_building_a_nas_array/13_truenas" alt="TrueNAS up and running! (Photo taken after I've been using it a while)"></a>
 *TrueNAS up and running! (Photo taken after I've been using it a while)*
 
 And that's it! If you're wondering about the whole Steam games being on the NAS array - that will be the topic of another article. (I will link that here when I finish it). For now, I hope you enjoyed reading this and maybe learned something from it.
