@@ -61,13 +61,13 @@ h1 {
   font-size: 1.8rem;
 }
 h2 {
-  font-size: 1.7rem;
+  font-size: 1.0rem;
 }
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.0rem;
 }
 h4 {
-  font-size: 1.125rem;
+  font-size: 0.8rem;
 }
 h1, h2, h3, h4 {
   margin-top: 1.25rem;
@@ -1124,4 +1124,29 @@ pre {
   #nav-search-text {
     display: inline-block;
   }
+}
+
+
+
+/* EDS ADDITIONS */
+
+.image-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  border: #2980b9;
+  border-width: 0.3125rem;
+  border-style: solid;
+  border-radius: 0.3125rem;
+}
+
+.image-row img {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+  border: #3CB371;
+  border-width: 0.3125rem;
+  border-style: solid;
+  border-radius: 0.3125rem;
 }
