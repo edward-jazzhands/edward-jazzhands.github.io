@@ -4,12 +4,13 @@ title: Building a home NAS array with salvaged parts
 cover-img: /assets/img/1-building-a-home-nas/cover.jpg
 thumbnail-img: /assets/img/1-building-a-home-nas/thumb.jpg
 share-img: /assets/img/1-building-a-home-nas/cover.jpg
+img_folder: "v1/1_building_a_nas_array/"
+post_number: 1
 tags:
   - TrueNAS
   - DIY
   - HomeLab
   - Refurbishing
-img_folder: "v1/1_building_a_nas_array/"
 ---
 
 At my place of employment, I was lucky to acquire an old and monstrous computer case that was being thrown in the trash.

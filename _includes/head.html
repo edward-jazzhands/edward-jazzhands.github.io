@@ -119,7 +119,8 @@
   {%- endcapture -%}
   {%- assign img=img | strip -%}
 
-  <meta property="og:title" content="{{ title }}">
+  
+  <meta property="og:title" content="{{ page.title }}">
   <meta property="og:description" content="{{ description }}">
 
   {% if img != "" %}

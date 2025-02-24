@@ -127,15 +127,14 @@ edit_page_button: true
 # See https://github.com/daattali/beautiful-jekyll/issues/765 to understand the issue this setting can solve
 navbar-var-length: false
 
-# The keywords to associate with your website, for SEO purposes
+# The keywords to associate with the site, for SEO purposes
 #keywords: "my,list,of,keywords"
 
 ######################################
 # --- Colours / background image --- #
 ######################################
 
-# Personalize the colours in your website. Colour values can be any valid CSS colour
-
+# Colour values can be any valid CSS colour
 page-col: "#18191a"
 text-col: "#e4e6eb"
 link-col: "#269fe6"
@@ -148,21 +147,18 @@ footer-text-col: "#aaaa9e"
 footer-link-col: "#269fe6"
 footer-hover-col: "#28a9e6"
 
+# Any custom CSS files here will be included
+site-css:
+  - "/assets/css/eds-additions.css"
+
 # Alternatively, the navbar, footer, and page background can be set to an image
-# instead of colour
+# instead of colour:
 
 #navbar-img: "/assets/img/bgimage.png"
 #footer-img: "/assets/img/bgimage.png"
 #page-img: "/assets/img/bgimage.png"
 
-# Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
-#mobile-theme-col: "#0085A1"
-
-# For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
-#site-css:
-#  - "/assets/css/custom-styles.css"
-
-# If you have common JavaScript files that should be included in every page, list them here
+# Common JavaScript files that should be included in every page:
 #site-js:
 #  - "/assets/js/custom-script.js"
 
@@ -170,8 +166,8 @@ footer-hover-col: "#28a9e6"
 # --- Web Analytics Section --- #
 #################################
 
-# Fill in your Google Analytics tag ID (or "Measurement ID") to track your website usage
-#gtag: "G-XXXXXXXXXX"
+# Google Analytics tag ID (or "Measurement ID")
+gtag: "G-CWTENK68HR"
 
 # Fill in your Cloudflare Analytics beacon token to track your website using Cloudflare Analytics
 #cloudflare_analytics: ""
@@ -196,8 +192,8 @@ footer-hover-col: "#28a9e6"
 # --- Comments --- #
 ####################
 
-# To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-disqus: "edwardjazzhands"
+# This is correct - But replaced with Giscus
+# disqus: "edwardjazzhands"
 
 # To use Facebook Comments, create a Facebook app and fill in the Facebook App ID
 #fb_comment_id: ""
@@ -230,20 +226,22 @@ disqus: "edwardjazzhands"
 #    secret   : # Encrypt your password by going to https://<your-own-api>/v3/encrypt/<your-site-secret>
 
 # To use giscus comments:
-# (0) Uncomment the following giscus section, (1) Enable Discussions in your GitHub repository,
+# (0) Uncomment the following giscus section,
+# (1) Enable Discussions in your GitHub repository,
 # (2) Install the giscus app in your repository (details at https://giscus.app),
 # (3) Fill in *all* the parameters below
 # See more details about giscus and each of the following parameters at https://giscus.app
-#giscus:
-#  hostname: giscus.app # Replace with your giscus instance's hostname if self-hosting
-#  repository: # GitHub username/repository eg. "daattali/beautiful-jekyll"
-#  repository-id: # ID of your repository, retrieve this info from https://giscus.app
-#  category: Announcements # Category name of your GitHub Discussion posts
-#  category-id: # ID of your category, retrieve this info from https://giscus.app
-#  mapping: pathname
-#  reactions-enabled: 1
-#  emit-metadata: 0
-#  theme: light
+
+giscus:
+  hostname: giscus.app      # Replace with your giscus instance's hostname if self-hosting
+  repository: edward-jazzhands/edward-jazzhands.github.io  
+  repository-id: R_kgDON77p4g           # ID of your repository, retrieve this info from https://giscus.app
+  category: Announcements         # Category name of your GitHub Discussion posts
+  category-id: DIC_kwDON77p4s4CnQcy             # ID of your category, retrieve this info from https://giscus.app
+  mapping: og:title
+  reactions-enabled: 1
+  emit-metadata: 1
+  theme: dark
 
 ################
 # --- Misc --- #
@@ -301,6 +299,12 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
-# Beautiful Jekyll / Dean Attali
+# Beautiful Jekyll
+# Template originally by Dean Attali
+# Modified by Edward Jazzhands
+# Thanks a bunch for the great template!
+# They originally put this serial number here.
+# Not sure what it's for, but I'm leaving it here.
+
 # 2fc73a3a967e97599c9763d05e564189
 
