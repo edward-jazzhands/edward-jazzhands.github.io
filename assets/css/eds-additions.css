@@ -1,29 +1,19 @@
 /* EDS ADDITIONS */
 
 .image-row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: auto;
-  }
-  
-  .image-row a {
-    display: block;
-    flex: 1;      
-    margin: 0 5px;
-  }
-  
-  .image-row p {
-    display: block;
-    flex: 1;      
-    margin: 0 5px;
-  }
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px;
+    align-items: start; /* Aligns items to the top */
+}
 
   .image-row img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+  }
+
+  .image-row a {
     display: block;
-    flex: 1;
-    margin: 0 5px;
-    width: 100%; 
-    height: auto;
-    object-fit: contain;
+    width: 100%;
   }
