@@ -3,4 +3,3 @@ serve:
 
 nuke:
     rm -rf public resources
-    hugo mod clean
