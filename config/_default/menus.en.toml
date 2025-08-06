@@ -1,0 +1,42 @@
+[[main]]
+none = "none"
+
+[[main]]
+name = "Articles"
+pageRef = "posts"
+identifier = "7WJRMuCnyU"
+weight = 1
+
+[[main]]
+name = "Utilities"
+pageRef = "utilities"
+identifier = "u2rNaOnghz"
+weight = 2
+
+[[main]]
+name = "Libraries"
+weight = 3
+
+[[main]]
+name = "Python"
+parent = "Libraries"
+pageRef = "python-libraries"
+identifier = "4GJxxhBaR3"
+weight = 4
+
+[[main]]
+name = "Textual"
+parent = "Libraries"
+pageRef = "textual-libraries"
+identifier = "ChPpUOwrnW"
+weight = 5
+
+[[main]]
+pre = "github"
+url = "https://github.com/edward-jazzhands"
+identifier = "sKJAl1hy73"
+weight = 9_999
+
+
+[[footer]]
+none = "none"
