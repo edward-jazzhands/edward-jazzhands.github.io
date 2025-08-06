@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://edward-jazzhands.github.io/sitemap.xml
