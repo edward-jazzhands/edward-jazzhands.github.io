@@ -115,7 +115,13 @@ def tests(session: nox.Session, version: int) -> None:
     # Run your tests here
 ```
 
-In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parameterized session that will run the tests for each version in the list. The `version` parameter is passed to the session function, allowing us to install the specific version of Django for each run. The line `f"{framework}>={version},<{next_minor}.0",` ensures that it grabs the latest patch for the specified minor version of Django (For example for version '3.2' this would result in `Django>=3.2,<3.3.0`).
+In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parameterized session that will run the tests for each version in the list. The `version` parameter is passed to the session function, allowing us to install the specific version of Django for each run. Then this line:
+
+```py
+f"{framework}>={version},<{next_minor}.0",
+```
+
+...ensures that it grabs the latest patch for the specified minor version of Django (For example for version 3.2 this would result in `Django>=3.2,<3.3.0`).
 
 You can start to imagine how easy it would be to re-use this file almost exactly between projects if you already manage all of them with UV. Just change the `framework` variable to the name of your framework, and the `VERSIONS` list to the versions you want to test against, and everything else remains the same.
 
