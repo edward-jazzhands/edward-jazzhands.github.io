@@ -81,6 +81,44 @@ Together, these two lines tell UV to create the new environment in the location 
 
 The above example is all you need to get started. Place the example in a file called `noxfile.py` in your project root, and you can now run the `nox` command in your terminal to automatically run MyPy and Pytest against Pythons 3.10, 3.11, and 3.12, fully taking advantage of your existing UV cache to install the environments. It's fast and it's reproducible. You can drop this noxfile.py into any project and you're off to the races. It's also pretty convenient to have one consistent `nox` command across all your Python projects.
 
+## Using Nox Parameterized Sessions
+
+What if you also want to test against numerous framework versions? For example, if you're a Django developer, you might want to test against Django 3.2, 4.1, and 5.0. Nox makes this easy with parameterized sessions. You can define a session that takes parameters and then run it with different arguments. Since we set up the sessions using Python, it's trivial to specify exactly what versions you want to test against. Here's an example of how you can do this:
+
+```python
+framework = "django"
+VERSIONS = [3.2, 4.1, 5.0]
+
+@nox.session(
+    venv_backend="uv",
+    python=PYTHON_VERSIONS,
+)
+@nox.parametrize("version", VERSIONS)
+def tests(session: nox.Session, version: int) -> None:
+
+    session.run_install(
+        "uv",
+        "sync",
+        "--quiet",
+        f"--python={session.virtualenv.location}",
+        env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
+        external=True,
+    )
+
+    major, minor = str(version).split(".")
+    next_minor = f"{major}.{int(minor)+1}"
+    session.run_install(
+        "uv", "pip", "install",
+        f"{framework}>={version},<{next_minor}.0",
+        external=True,
+    )
+    # Run your tests here
+```
+
+In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parameterized session that will run the tests for each version in the list. The `version` parameter is passed to the session function, allowing us to install the specific version of Django for each run. The line `f"{framework}>={version},<{next_minor}.0",` ensures that it grabs the latest patch for the specified minor version of Django (For example for version '3.2' this would result in `Django>=3.2,<3.3.0`).
+
+You can start to imagine how easy it would be to re-use this file almost exactly between projects if you already manage all of them with UV. Just change the `framework` variable to the name of your framework, and the `VERSIONS` list to the versions you want to test against, and everything else remains the same.
+
 ## Using Nox and UV in GitHub Actions CI
 
 Both Nox and UV provide official Github actions that you can use to run your tests in a workflow. This means that you can use the same noxfile.py to run your tests locally and in your CI/CD pipeline. Behold the simplicity of the following workflow file:
