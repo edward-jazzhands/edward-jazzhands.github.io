@@ -83,7 +83,7 @@ The above example is all you need to get started. Place the example in a file ca
 
 ## Using Nox Parameterized Sessions
 
-What if you also want to test against numerous framework versions? For example, if you're a Django developer, you might want to test against Django 3.2, 4.1, and 5.0. Nox makes this easy with parameterized sessions. You can define a session that takes parameters and then run it with different arguments. Since we set up the sessions using Python, it's trivial to specify exactly what versions you want to test against. Here's an example of how you can do this:
+What if you also want to test against numerous framework versions? For example, if you're a Django developer, you might want to test against Django 3.2, 4.1, and 5.0. Nox makes this easy with parameterized sessions. You can define a session that takes parameters and then run it with different arguments. Since we set up the sessions using Python, it's trivial to specify exactly what versions we want to test against. Here's an example of how you can do this:
 
 ```python
 framework = "django"
@@ -119,6 +119,8 @@ In this example we define a list of Django versions that we want to test against
 
 You can start to imagine how easy it would be to re-use this file almost exactly between projects if you already manage all of them with UV. Just change the `framework` variable to the name of your framework, and the `VERSIONS` list to the versions you want to test against, and everything else remains the same.
 
+See the [Nox docs on parameterized sessions](https://nox.thea.codes/en/stable/config.html#parametrizing-sessions) for more information.
+
 ## Using Nox and UV in GitHub Actions CI
 
 Both Nox and UV provide official Github actions that you can use to run your tests in a workflow. This means that you can use the same noxfile.py to run your tests locally and in your CI/CD pipeline. Behold the simplicity of the following workflow file:
@@ -153,7 +155,7 @@ jobs:
         run: nox
 ```
 
-That's it. You can see the official [astral-sh/setup-uv](https://github.com/marketplace/actions/astral-sh-setup-uv) and [wntrblm/nox](https://github.com/wntrblm/nox) Github actions being used (wntrblm/nox seems to use the repository itself as the action). It checks out your code, sets up UV, sets up Nox, and then runs everything you've defined in your noxfile. Nox will handle the installation of all the Python versions that it needs to test against. The `enable-cache: true` option in the `setup-uv` step ensures that the UV cache is used, making the process much faster.
+That's it. You can see the official [astral-sh/setup-uv](https://github.com/marketplace/actions/astral-sh-setup-uv) and [wntrblm/nox](https://github.com/wntrblm/nox) Github actions being used (wntrblm/nox seems to use the repository itself as the action). It checks out your code, sets up UV, sets up Nox, and then runs everything you've defined in your noxfile. Nox will handle the installation of all the Python versions that it needs to test against. The `enable-cache: true` option in the 'setup-uv' step ensures that the UV cache is used, making the process much faster.
 
 Doing this same thing with Tox in CI is a bit more complicated. There is no official support for Github actions the same way that Nox has, and it requires you to set up a matrix of jobs to test against multiple Python versions. There's various solutions to try to make this easier such as the [tox-gh](https://github.com/tox-dev/tox-gh) plugin. But none of them are as simple as the above Nox setup. With Nox, you configure everything in your noxfile, making it easy to re-use the above workflow across all your Python projects. You only need to worry about changing the noxfile to suit each project, while the CI workflow remains the same.
 
@@ -170,3 +172,7 @@ With UV becoming more popular every day, there's going to be more people looking
 {{< alert icon="lightbulb" cardColor="#1B462F" iconColor="white">}}
 **Pro Tip**: If you're using a GUI framework, you can add visual regression tests (aka Snapshot testing) into your unit testing regimen. Combine that with Nox's multi-version testing, and you've got full-stack UI coverage.
 {{< /alert >}}
+
+External Links:
+- [Nox Documentation](https://nox.thea.codes/en/stable/)
+- [UV Documentation](https://docs.astral.sh/uv/)
