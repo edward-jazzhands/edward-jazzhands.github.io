@@ -175,10 +175,6 @@ This setup is a game-changer for a few reasons:
 
 With UV becoming more popular every day, there's going to be more people looking for more ways to use it in CI effectively. If you already use UV for managing your project then it`s only natural to want to look for solutions to this. Until recently, this has generally been a headache to achieve with traditional tooling. But now, by leveraging how UV and Nox have a practically symbiotic relationship, this process is so much simpler and faster that I don't think I'll ever have reason to use Tox again. I believe anyone who is a fan of UV will feel the same way after seeing it in action for themselves.
 
-{{< alert icon="lightbulb" cardColor="#1B462F" iconColor="white">}}
-**Pro Tip**: If you're using a GUI framework, you can add visual regression tests (aka Snapshot testing) into your unit testing regimen. Combine that with Nox's multi-version testing, and you've got full-stack UI coverage.
-{{< /alert >}}
-
 External Links:
 - [Nox Documentation](https://nox.thea.codes/en/stable/)
 - [UV Documentation](https://docs.astral.sh/uv/)
