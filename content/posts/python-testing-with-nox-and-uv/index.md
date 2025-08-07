@@ -81,9 +81,9 @@ Together, these two lines tell UV to create the new environment in the location 
 
 The above example is all you need to get started. Place the example in a file called `noxfile.py` in your project root, and you can now run the `nox` command in your terminal to automatically run MyPy and Pytest against Pythons 3.10, 3.11, and 3.12, fully taking advantage of your existing UV cache to install the environments. It's fast and it's reproducible. You can drop this noxfile.py into any project and you're off to the races. It's also pretty convenient to have one consistent `nox` command across all your Python projects.
 
-## Using Nox Parameterized Sessions
+## Using Nox Parametrized Sessions
 
-What if you also want to test against numerous framework versions? For example, if you're a Django developer, you might want to test against Django 3.2, 4.1, and 5.0. Nox makes this easy with parameterized sessions. You can define a session that takes parameters and then run it with different arguments. Since we set up the sessions using Python, it's trivial to specify exactly what versions we want to test against. Here's an example of how you can do this:
+What if you also want to test against numerous framework versions? For example, if you're a Django developer, you might want to test against Django 3.2, 4.1, and 5.0. Nox makes this easy with parametrized sessions. You can define a session that takes parameters and then run it with different arguments. Since we set up the sessions using Python, it's trivial to specify exactly what versions we want to test against. Here's an example of how you can do this:
 
 ```python
 framework = "django"
@@ -115,7 +115,7 @@ def tests(session: nox.Session, version: int) -> None:
     # Run your tests here
 ```
 
-In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parameterized session that will run the tests for each version in the list. The `version` parameter is passed to the session function, allowing us to install the specific version of Django for each run. Then this line:
+In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parametrized session that will run the tests for each version in the list. The `version` parameter is passed to the session function, allowing us to install the specific version of Django for each run. Then this line:
 
 ```py
 f"{framework}>={version},<{next_minor}.0",
@@ -125,7 +125,7 @@ f"{framework}>={version},<{next_minor}.0",
 
 You can start to imagine how easy it would be to re-use this file almost exactly between projects if you already manage all of them with UV. Just change the `framework` variable to the name of your framework, and the `VERSIONS` list to the versions you want to test against, and everything else remains the same.
 
-See the [Nox docs on parameterized sessions](https://nox.thea.codes/en/stable/config.html#parametrizing-sessions) for more information.
+See the [Nox docs on parametrized sessions](https://nox.thea.codes/en/stable/config.html#parametrizing-sessions) for more information.
 
 ## Using Nox and UV in GitHub Actions CI
 
@@ -171,7 +171,7 @@ This setup is a game-changer for a few reasons:
 
 - **Copy-Paste Simplicity**: Two files, minimal config, and you're done. Port it to any Python project in minutes.
 - **UV's Speed**: UV is _much_ faster than pip for dependency resolution and installation. My CI runs take seconds even when testing numerous Python versions, and local testing is so fast that running it often is no issue. I've even started using Nox as the testing interface for terminal coding agents, and it works surprisingly well.
-- **Nox's Flexibility**: Testing multiple Python versions and framework versions is a breeze with Nox's parameterized sessions.
+- **Nox's Flexibility**: Testing multiple Python versions and framework versions is a breeze with Nox's parametrized sessions.
 
 With UV becoming more popular every day, there's going to be more people looking for more ways to use it in CI effectively. If you already use UV for managing your project then it`s only natural to want to look for solutions to this. Until recently, this has generally been a headache to achieve with traditional tooling. But now, by leveraging how UV and Nox have a practically symbiotic relationship, this process is so much simpler and faster that I don't think I'll ever have reason to use Tox again. I believe anyone who is a fan of UV will feel the same way after seeing it in action for themselves.
 
