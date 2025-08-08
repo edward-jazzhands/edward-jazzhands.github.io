@@ -116,10 +116,10 @@ def tests(session: nox.Session, django_ver: int) -> None:
     # Run your tests here
 ```
 
-In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parameterized session that will run the tests for each version in the list. The `version` parameter is passed to the session function, allowing us to install the specific version of Django for each run. Then this line:
+In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parameterized session that will run the tests for each version in the list. The `django_ver` parameter is passed to the session function, allowing us to install the specific version of Django for each run. Then this line:
 
 ```py
-f"{framework}>={version},<{next_minor}.0",
+f"{framework}>={django_ver},<{next_minor}.0",
 ```
 
 ...ensures that it grabs the latest patch for the specified minor version of Django (For example for version 3.2 this would result in `Django>=3.2,<3.3.0`).
@@ -177,5 +177,6 @@ This setup is a game-changer for a few reasons:
 With UV becoming more popular every day, there's going to be more people looking for more ways to use it in CI effectively. If you already use UV for managing your project then it`s only natural to want to look for solutions to this. Until recently, this has generally been a headache to achieve with traditional tooling. But now, by leveraging how UV and Nox have a practically symbiotic relationship, this process is so much simpler and faster that I don't think I'll ever have reason to use Tox again. I believe anyone who is a fan of UV will feel the same way after seeing it in action for themselves.
 
 External Links:
+
 - [Nox Documentation](https://nox.thea.codes/en/stable/)
 - [UV Documentation](https://docs.astral.sh/uv/)
