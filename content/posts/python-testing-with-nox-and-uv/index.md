@@ -94,8 +94,8 @@ DJANGO_VERSIONS = [3.2, 4.1, 5.0]
     venv_backend="uv",
     python=PYTHON_VERSIONS,
 )
-@nox.parametrize("django_ver", DJANGO_VERSIONS)
-def tests(session: nox.Session, django_ver: int) -> None:
+@nox.parametrize("lib_ver", DJANGO_VERSIONS)
+def tests(session: nox.Session, lib_ver: int) -> None:
 
     session.run_install(
         "uv",
@@ -106,20 +106,20 @@ def tests(session: nox.Session, django_ver: int) -> None:
         external=True,
     )
 
-    major, minor = str(django_ver).split(".")
+    major, minor = str(lib_ver).split(".")
     next_minor = f"{major}.{int(minor)+1}"
     session.run_install(
         "uv", "pip", "install",
-        f"{framework}>={django_ver},<{next_minor}.0",
+        f"{framework}>={lib_ver},<{next_minor}.0",
         external=True,
     )
     # Run your tests here
 ```
 
-In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parameterized session that will run the tests for each version in the list. The `django_ver` parameter is passed to the session function, allowing us to install the specific version of Django for each run. Then this line:
+In this example we define a list of Django versions that we want to test against. We then use the `@nox.parametrize` decorator to create a parameterized session that will run the tests for each version in the list. The `lib_ver` parameter is passed to the session function, allowing us to install the specific version of Django for each run. Then this line:
 
 ```py
-f"{framework}>={django_ver},<{next_minor}.0",
+f"{framework}>={lib_ver},<{next_minor}.0",
 ```
 
 ...ensures that it grabs the latest patch for the specified minor version of Django (For example for version 3.2 this would result in `Django>=3.2,<3.3.0`).
