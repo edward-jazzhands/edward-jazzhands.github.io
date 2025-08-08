@@ -86,16 +86,16 @@ The above example is all you need to get started. Place the example in a file ca
 What if you also want to test against numerous framework versions? For example, if you're a Django developer, you might want to test against Django 3.2, 4.1, and 5.0. Nox makes this easy with parameterized sessions. You can define a session that takes parameters and then run it with different arguments. Since we set up the sessions using Python, it's trivial to specify exactly what versions we want to test against. Here's an example of how you can do this:
 
 ```python
-PYTHON_VERSIONS = ["3.10", "3.11", "3.12"]
 framework = "django"
+PYTHON_VERSIONS = ["3.10", "3.11", "3.12"]
 DJANGO_VERSIONS = [3.2, 4.1, 5.0]
 
 @nox.session(
     venv_backend="uv",
     python=PYTHON_VERSIONS,
 )
-@nox.parametrize("version", VERSIONS)
-def tests(session: nox.Session, version: int) -> None:
+@nox.parametrize("django_ver", DJANGO_VERSIONS)
+def tests(session: nox.Session, django_ver: int) -> None:
 
     session.run_install(
         "uv",
@@ -106,11 +106,11 @@ def tests(session: nox.Session, version: int) -> None:
         external=True,
     )
 
-    major, minor = str(version).split(".")
+    major, minor = str(django_ver).split(".")
     next_minor = f"{major}.{int(minor)+1}"
     session.run_install(
         "uv", "pip", "install",
-        f"{framework}>={version},<{next_minor}.0",
+        f"{framework}>={django_ver},<{next_minor}.0",
         external=True,
     )
     # Run your tests here
