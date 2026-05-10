@@ -10,7 +10,3 @@ cascade:
   showViews: false
   showDate: false
 ---
-
-{{< lead >}}
-by Edward Jazzhands
-{{< /lead >}}
