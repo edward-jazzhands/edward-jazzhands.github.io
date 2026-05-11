@@ -6,7 +6,6 @@ keywords: ['homelab', 'home server', 'self-hosting', 'Linux', 'Docker', 'Tailsca
 showDate: true
 showTableOfContents: true
 showComments: true
-layout: "simple"
 ---
 
 I have always found it funny how programming and home-labbing have so little overlap. A surprising number of programmers have never seriously considered setting up a home server, and most homelab enthusiasts are not developers. That's a shame, because the two hobbies complement each other almost perfectly. If you're a programmer, especially if you're learning web development or trying to become more comfortable with infrastructure, a home server might be the single best addition you could make to your setup.
