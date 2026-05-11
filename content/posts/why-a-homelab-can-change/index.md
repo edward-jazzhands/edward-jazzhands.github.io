@@ -4,7 +4,8 @@ description: "A homelab is more than just a hobby project, it can fundamentally 
 date: 2026-05-10
 keywords: ['homelab', 'home server', 'self-hosting', 'Linux', 'Docker', 'Tailscale', 'Code-Server', 'networking', 'TrueNAS', 'Tmux', 'remote development']
 showDate: true
-showTableOfContents: false
+showTableOfContents: true
+showComments: true
 layout: "simple"
 ---
 

@@ -5,6 +5,7 @@ date: 2025-08-06
 keywords: ['Python', 'CI', 'Nox', 'UV', 'Testing', 'Automation']
 showDate: true
 showTableOfContents: true
+showComments: true
 layout: "simple"
 ---
 

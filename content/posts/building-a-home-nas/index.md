@@ -5,6 +5,7 @@ date: 2025-02-21
 keywords: ['NAS', 'TrueNAS',  'DIY', 'TrueNAS', 'HomeLab', 'Refurbishing']
 showDate: true
 showTableOfContents: true
+showComments: true
 layout: "simple"
 ---
 
