@@ -5,6 +5,7 @@ date: 2025-02-21
 keywords: ['NAS', 'TrueNAS',  'DIY', 'TrueNAS', 'HomeLab', 'Refurbishing']
 showDate: true
 showTableOfContents: true
+layout: "simple"
 ---
 
 At my place of employment, I was lucky to acquire an old and monstrous computer case that was being thrown in the trash.
